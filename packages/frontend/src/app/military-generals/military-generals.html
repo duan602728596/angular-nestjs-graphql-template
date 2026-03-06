@@ -1,0 +1,20 @@
+<ng-template #listTpl let-item="item">
+  <tr>
+    <td class="px-4 py-2 border border-gray-300">{{ item.id }}</td>
+    <td class="px-4 py-2 border border-gray-300">{{ item.name }}</td>
+    <td class="px-4 py-2 border border-gray-300">{{ item.influence | influence }}</td>
+  </tr>
+</ng-template>
+
+<div class="p-4">
+  <button nz-button routerLink="">Back</button>
+  <div class="mt-4">
+    <table class="border border-gray-300">
+      <tbody>
+        @for (item of militaryGeneralsList(); track item.id) {
+          <ng-container *ngTemplateOutlet="listTpl; context: { item }"></ng-container>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

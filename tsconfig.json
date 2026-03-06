@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "ESNext",
+    "newLine": "LF",
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@backend/*": [
+        "./packages/backend/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

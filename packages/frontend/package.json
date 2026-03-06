@@ -1,0 +1,36 @@
+{
+  "name": "@angular-nestjs-graphql-template/frontend",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --port 5156",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "dependencies": {
+    "@angular/common": "^21.1.5",
+    "@angular/compiler": "^21.1.5",
+    "@angular/core": "^21.1.5",
+    "@angular/forms": "^21.1.5",
+    "@angular/platform-browser": "^21.1.5",
+    "@angular/router": "^21.1.5",
+    "gql-query-builder": "^3.8.0",
+    "ng-zorro-antd": "^21.1.0",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.1.5",
+    "@angular/cli": "^21.1.5",
+    "@angular/compiler-cli": "^21.1.5",
+    "@tailwindcss/postcss": "^4.2.1",
+    "cross-env": "^10.1.0",
+    "jsdom": "^28.1.0",
+    "less": "^4.2.0",
+    "tailwindcss": "^4.2.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.18"
+  }
+}
