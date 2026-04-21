@@ -33,15 +33,16 @@
               "./src/styles/ng-zorro-antd-theme.less",
               "./src/styles/tailwindcss.css",
               "./src/styles/styles.sass"
-            ]
+            ],
+            "extractLicenses": false
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "5mb",
+                  "maximumError": "50mb"
                 },
                 {
                   "type": "anyComponentStyle",

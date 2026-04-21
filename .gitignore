@@ -19,3 +19,14 @@ yarn-error.log
 .DS_Store
 package.json.lerna_backup
 .eslintcache
+.nx
+
+
+.nx/cache
+.nx/workspace-data
+.angular
+
+__screenshots__/
+
+.claude/worktrees
+.claude/settings.local.json

@@ -12,6 +12,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
+    "@nx/angular": "^21.6.11",
     "@sweet-milktea/babel-preset-sweet": "^4.6.0",
     "@types/node": "^25",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
@@ -26,6 +27,7 @@
     "globals": "^17.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "nx": "^21.6.11",
     "typescript": "^6.0.3"
   },
   "lint-staged": {
