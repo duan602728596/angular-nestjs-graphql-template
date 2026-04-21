@@ -10,27 +10,27 @@
     "test": "ng test"
   },
   "dependencies": {
-    "@angular/common": "^21.1.5",
-    "@angular/compiler": "^21.1.5",
-    "@angular/core": "^21.1.5",
-    "@angular/forms": "^21.1.5",
-    "@angular/platform-browser": "^21.1.5",
-    "@angular/router": "^21.1.5",
+    "@angular/common": "^21.2.9",
+    "@angular/compiler": "^21.2.9",
+    "@angular/core": "^21.2.9",
+    "@angular/forms": "^21.2.9",
+    "@angular/platform-browser": "^21.2.9",
+    "@angular/router": "^21.2.9",
     "gql-query-builder": "^3.8.0",
-    "ng-zorro-antd": "^21.1.0",
+    "ng-zorro-antd": "^21.2.2",
     "rxjs": "^7.8.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.1.5",
-    "@angular/cli": "^21.1.5",
-    "@angular/compiler-cli": "^21.1.5",
+    "@angular/build": "^21.2.7",
+    "@angular/cli": "^21.2.7",
+    "@angular/compiler-cli": "^21.2.9",
     "@tailwindcss/postcss": "^4.2.1",
     "cross-env": "^10.1.0",
     "jsdom": "^28.1.0",
     "less": "^4.2.0",
     "tailwindcss": "^4.2.1",
-    "typescript": "~5.9.2",
+    "typescript": "^6.0.3",
     "vitest": "^4.0.18"
   }
 }

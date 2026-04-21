@@ -4,9 +4,9 @@ import { InfluencesEnum } from '../enum/influences.enum/index.js';
 
 @ObjectType()
 export class MilitaryGeneralItem {
-  @Field((): GraphQLScalarType<number> => Int) id: number;
+  @Field((): GraphQLScalarType<number> => Int) id!: number;
 
-  @Field() name: string;
+  @Field() name!: string;
 
-  @Field((): typeof InfluencesEnum => InfluencesEnum) influence: InfluencesEnum;
+  @Field((): typeof InfluencesEnum => InfluencesEnum) influence!: InfluencesEnum;
 }
