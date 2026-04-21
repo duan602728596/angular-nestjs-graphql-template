@@ -8,7 +8,7 @@
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
     "start:debug": "cross-env NODE_ENV=development nest start --debug --watch",
     "start:prod": "node dist/main",
-    "codegen": "graphql-codegen",
+    "codegen": "node dist/scripts/graphql/graphql.generate.js && graphql-codegen",
     "codegen:watch": "graphql-codegen --watch",
     "test": "jest",
     "test:watch": "jest --watch",
