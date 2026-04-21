@@ -30,9 +30,9 @@
               }
             ],
             "styles": [
-              "ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/tailwindcss.css",
-              "src/styles.sass"
+              "./src/styles/ng-zorro-antd-theme.less",
+              "./src/styles/tailwindcss.css",
+              "./src/styles/styles.sass"
             ]
           },
           "configurations": {
