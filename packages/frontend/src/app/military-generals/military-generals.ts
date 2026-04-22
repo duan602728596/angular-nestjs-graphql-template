@@ -29,10 +29,10 @@ export class MilitaryGenerals implements OnInit {
     private militaryGeneralsService: MilitaryGeneralsService
   ) {}
 
-  militaryGeneralsList: WritableSignal<IGraphQLQuerySchema['militaryGenerals']> = signal([]);
+  militaryGeneralsList: WritableSignal<IGraphQLQuerySchema['militaryGenerals']['list']> = signal([]);
 
   async getMilitaryGenerals(): Promise<void> {
-    const res: IServiceDataReturnType<IGraphQLQuerySchema['militaryGenerals']> = await this.militaryGeneralsService.getMilitaryGenerals();
+    const res: IServiceDataReturnType<IGraphQLQuerySchema['militaryGenerals']['list']> = await this.militaryGeneralsService.getMilitaryGenerals();
 
     if (res.errorMessage) {
       this.message.error(res.errorMessage);

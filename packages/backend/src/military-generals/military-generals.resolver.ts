@@ -1,21 +1,26 @@
-import { Resolver, Query, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, ResolveField, Args, Int } from '@nestjs/graphql';
 import type { GraphQLScalarType } from 'graphql';
-import { MilitaryGeneralItem } from './military-generals.model.js';
+import { MilitaryGeneralItemModel, MilitaryGeneralsModel } from './military-generals.model.js';
 import { MilitaryGeneralsService } from './military-generals.service.js';
 
-@Resolver()
+@Resolver((): typeof MilitaryGeneralsModel => MilitaryGeneralsModel)
 export class MilitaryGeneralsResolver {
   constructor(private readonly militaryGeneralsService: MilitaryGeneralsService) {}
 
-  @Query((): Array<typeof MilitaryGeneralItem> => [MilitaryGeneralItem])
-  militaryGenerals(): Array<MilitaryGeneralItem> {
+  @Query((): typeof MilitaryGeneralsModel => MilitaryGeneralsModel)
+  militaryGenerals(): {} {
+    return {};
+  }
+
+  @ResolveField((): Array<typeof MilitaryGeneralItemModel> => [MilitaryGeneralItemModel])
+  list(): Array<MilitaryGeneralItemModel> {
     return this.militaryGeneralsService.getMilitaryGeneralsList();
   }
 
-  @Query((): typeof MilitaryGeneralItem => MilitaryGeneralItem, { nullable: true })
-  militaryGeneral(
+  @ResolveField((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel, { nullable: true })
+  one(
     @Args('id', { type: (): GraphQLScalarType<number> => Int }) id: number
-  ): MilitaryGeneralItem | null {
+  ): MilitaryGeneralItemModel | null {
     return this.militaryGeneralsService.getMilitaryGeneralOneById(id);
   }
 }

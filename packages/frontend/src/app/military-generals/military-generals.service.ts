@@ -5,15 +5,17 @@ import type { IServiceDataReturnType } from '../../utils/types';
 
 @Injectable()
 export class MilitaryGeneralsService {
-  async getMilitaryGenerals(): Promise<IServiceDataReturnType<IGraphQLQuerySchema['militaryGenerals']>> {
+  async getMilitaryGenerals(): Promise<IServiceDataReturnType<IGraphQLQuerySchema['militaryGenerals']['list']>> {
     const queryString: IQuery = query([{
       operation: 'militaryGenerals',
-      fields: ['id', 'name', 'influence']
+      fields: [{
+        list: ['id', 'name', 'influence']
+      }]
     }]);
     const res: IGraphQLResBody = await requestGraphql(queryString);
 
     return {
-      data: res.data?.militaryGenerals ?? [],
+      data: res.data?.militaryGenerals.list ?? [],
       errorMessage: res?.errors?.[0].message
     };
   }
