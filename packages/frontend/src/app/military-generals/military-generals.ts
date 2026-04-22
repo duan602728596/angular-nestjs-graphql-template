@@ -6,7 +6,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { MilitaryGeneralsService } from './military-generals.service';
 import { InfluencePipe } from './influence-pipe';
 import type { IGraphQLQuerySchema } from '../../utils/request';
-import type { IServiceDataReturnType } from '../../utils/types';
+import type { IServiceDataReturnType } from '../../types/response';
 
 @Component({
   selector: 'app-military-generals',

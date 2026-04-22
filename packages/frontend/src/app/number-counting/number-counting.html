@@ -1,0 +1,13 @@
+<div class="p-4">
+  <button nz-button routerLink="">Back</button>
+  <div class="flex mt-4 gap-2">
+    <button nz-button (click)="numberCountingStore.add()">+</button>
+    <div class="w-20">
+      <input nz-input class="text-center" [value]="numberCountingStore.count()">
+    </div>
+    <button nz-button (click)="numberCountingStore.sub()">-</button>
+  </div>
+  <div class="mt-4">
+    Count is {{ numberCountingStore.isOdd() ? 'odd' : 'even' }} number.
+  </div>
+</div>

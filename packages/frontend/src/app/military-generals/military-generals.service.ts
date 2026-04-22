@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { query } from 'gql-query-builder';
 import { requestGraphql, type IQuery, type IGraphQLQuerySchema, type IGraphQLResBody } from '../../utils/request';
-import type { IServiceDataReturnType } from '../../utils/types';
+import type { IServiceDataReturnType } from '../../types/response';
 
 @Injectable()
 export class MilitaryGeneralsService {
