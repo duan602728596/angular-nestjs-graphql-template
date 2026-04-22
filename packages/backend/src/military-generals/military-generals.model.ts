@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import type { GraphQLScalarType } from 'graphql';
-import { InfluencesEnum } from '../enum/influences.enum/index.js';
+import { InfluencesEnum } from '../common/enum/influences.enum.js';
 
 @ObjectType()
 export class MilitaryGeneralItemModel {

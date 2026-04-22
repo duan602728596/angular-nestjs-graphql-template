@@ -1,4 +1,4 @@
-import { InfluencesEnum } from '../enum/influences.enum/index.js';
+import { InfluencesEnum } from '../common/enum/influences.enum.js';
 import type { MilitaryGeneralItemModel } from './military-generals.model.js';
 
 export const militaryGeneralsMockData: Array<MilitaryGeneralItemModel> = [
