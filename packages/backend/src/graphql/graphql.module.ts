@@ -2,7 +2,8 @@ import { join } from 'node:path';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { MilitaryGeneralsModule } from '../military-generals/military-generals.module.js';
+import { MilitaryGeneralsModule } from '../military-generals/military-generals/military-generals.module.js';
+import { MilitaryGeneralInformationModule } from '../military-generals/military-general-information/military-general-information.module.js';
 import { CodegenService } from './codegen.service.js';
 
 @Module({
@@ -13,8 +14,11 @@ import { CodegenService } from './codegen.service.js';
       path: '/api/graphql',
       graphiql: true
     }),
-    MilitaryGeneralsModule
+    MilitaryGeneralsModule,
+    MilitaryGeneralInformationModule
   ],
-  providers: [CodegenService]
+  providers: [
+    CodegenService
+  ]
 })
 export class GraphqlModule {}
