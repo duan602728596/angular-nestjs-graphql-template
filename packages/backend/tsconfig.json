@@ -15,8 +15,18 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "types": [
+      "jest",
       "node",
-      "jest"
+      "supertest"
     ]
-  }
+  },
+  "exclude": [
+    "jest.config.ts",
+    "jest-e2e.config.ts"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.jest.json"
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 {
   "name": "angular-nestjs-graphql-template",
   "packageManager": "yarn@4.12.0",
+  "type": "module",
   "scripts": {
     "eslint": "cross-env COMMITLINT=1 eslint ./ --cache --cache-location .eslintcache --no-warn-ignored",
     "prepare": "husky"

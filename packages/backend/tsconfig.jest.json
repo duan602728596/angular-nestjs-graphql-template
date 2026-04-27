@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "rootDir": "./"
+  },
+  "include": [
+    "jest.config.ts",
+    "jest-e2e.config.ts"
+  ]
+}
