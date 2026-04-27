@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, type ComponentFixture } from '@angular/core/testing';
+import { testProvideRoutes } from '../../utils/testMock';
 import { NumberCounting } from './number-counting';
 
 describe('NumberCounting', (): void => {
@@ -8,7 +8,8 @@ describe('NumberCounting', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [NumberCounting]
+      imports: [NumberCounting],
+      providers: [testProvideRoutes]
     }).compileComponents();
 
     fixture = TestBed.createComponent(NumberCounting);

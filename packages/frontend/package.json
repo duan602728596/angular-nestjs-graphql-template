@@ -11,7 +11,7 @@
     "nx:start": "nx serve --port 5156",
     "nx:build": "nx build",
     "nx:watch": "nx build --watch --configuration development",
-    "nx:test": "nx test"
+    "nx:test": "cross-env NX_DAEMON=false nx test"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/shared": "workspace:*",
