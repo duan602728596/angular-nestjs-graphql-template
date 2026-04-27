@@ -3,21 +3,28 @@ import type { GraphQLScalarType } from 'graphql';
 import { InfluencesEnum } from '../../../common/enum/influences.enum.js';
 import { MilitaryGeneralInformationModel } from '../military-general-information/military-general-information.model.js';
 
-@ObjectType()
+@ObjectType({ description: '单个武将基本信息' })
 export class MilitaryGeneralItemModel {
   @Field((): GraphQLScalarType<number> => Int) id!: number;
 
-  @Field() name!: string;
+  @Field({ description: '武将名字' }) name!: string;
 
-  @Field((): typeof InfluencesEnum => InfluencesEnum) influence!: InfluencesEnum;
+  @Field((): typeof InfluencesEnum => InfluencesEnum, { description: '武将阵营' }) influence!: InfluencesEnum;
 
-  @Field((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, { nullable: true })
-    militaryGeneralInformation?: MilitaryGeneralInformationModel | null;
+  @Field((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, {
+    nullable: true,
+    description: '武将的攻击力和防御力'
+  }) militaryGeneralInformation?: MilitaryGeneralInformationModel | null;
 }
 
-@ObjectType()
+@ObjectType({ description: '武将基本信息' })
 export class MilitaryGeneralsModel {
-  @Field((): Array<typeof MilitaryGeneralItemModel> => [MilitaryGeneralItemModel]) list!: Array<MilitaryGeneralItemModel>;
+  @Field((): Array<typeof MilitaryGeneralItemModel> => [MilitaryGeneralItemModel], {
+    description: '武将列表'
+  }) list!: Array<MilitaryGeneralItemModel>;
 
-  @Field((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel, { nullable: true }) one!: MilitaryGeneralItemModel | null;
+  @Field((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel, {
+    nullable: true,
+    description: '武将信息查询'
+  }) one!: MilitaryGeneralItemModel | null;
 }

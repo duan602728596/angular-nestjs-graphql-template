@@ -9,7 +9,10 @@ export class MilitaryGeneralInformationResolver {
     private readonly militaryGeneralInformationService: MilitaryGeneralInformationService
   ) {}
 
-  @Query((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, { nullable: true })
+  @Query((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, {
+    nullable: true,
+    description: '武将攻击力和防御力'
+  })
   militaryGeneralInformation(
     @Args('id', { type: (): GraphQLScalarType<number> => Int }) id: number
   ): MilitaryGeneralInformationModel | null {

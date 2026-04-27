@@ -1,0 +1,16 @@
+# https://github.com/anvilco/spectaql/blob/main/config-example.yml
+
+spectaql:
+  targetDir: ./public/docs
+
+introspection:
+  schemaFile: ./graphql/schema.gql
+
+info:
+  title: GraphQL API
+  version: 1.0.0
+  description: 基于 NestJS 自动生成的 GraphQL 文档
+
+servers:
+  - url: http://localhost:5157/api/graphql
+    description: 本地开发环境

@@ -11,10 +11,11 @@ export class MilitaryGeneralItemResolver {
     private readonly militaryGeneralInformationService: MilitaryGeneralInformationService
   ) {}
 
-  @ResolveField(
-    (): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel,
-    { name: 'militaryGeneralInformation', nullable: true }
-  )
+  @ResolveField((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, {
+    name: 'militaryGeneralInformation',
+    nullable: true,
+    description: '武将的攻击力和防御力信息'
+  })
   getMilitaryGeneralInformationByParent(
     @Parent() parent: MilitaryGeneralItemModel
   ): MilitaryGeneralInformationModel | null {
@@ -28,17 +29,24 @@ export class MilitaryGeneralsResolver {
     private readonly militaryGeneralsService: MilitaryGeneralsService
   ) {}
 
-  @Query((): typeof MilitaryGeneralsModel => MilitaryGeneralsModel)
+  @Query((): typeof MilitaryGeneralsModel => MilitaryGeneralsModel, { description: '武将基本信息' })
   militaryGenerals(): {} {
     return {};
   }
 
-  @ResolveField((): Array<typeof MilitaryGeneralItemModel> => [MilitaryGeneralItemModel], { name: 'list' })
+  @ResolveField((): Array<typeof MilitaryGeneralItemModel> => [MilitaryGeneralItemModel], {
+    name: 'list',
+    description: '武将列表'
+  })
   getList(): Array<MilitaryGeneralItemModel> {
     return this.militaryGeneralsService.getMilitaryGeneralsList();
   }
 
-  @ResolveField((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel, { name: 'one', nullable: true })
+  @ResolveField((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel, {
+    name: 'one',
+    nullable: true,
+    description: '查询单个武将信息'
+  })
   queryOne(
     @Args('id', { type: (): GraphQLScalarType<number> => Int }) id: number
   ): MilitaryGeneralItemModel | null {
