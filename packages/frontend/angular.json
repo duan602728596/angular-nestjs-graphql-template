@@ -34,7 +34,10 @@
               "./src/styles/tailwindcss.css",
               "./src/styles/styles.sass"
             ],
-            "extractLicenses": false
+            "extractLicenses": false,
+            "allowedCommonJsDependencies": [
+              "gql-query-builder"
+            ]
           },
           "configurations": {
             "production": {

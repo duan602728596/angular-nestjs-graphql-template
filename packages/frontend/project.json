@@ -8,7 +8,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular/build:application",
+      "executor": "@nx/angular:application",
       "outputs": [
         "{options.outputPath}"
       ],
@@ -27,7 +27,10 @@
           "packages/frontend/src/styles/tailwindcss.css",
           "packages/frontend/src/styles/styles.sass"
         ],
-        "extractLicenses": false
+        "extractLicenses": false,
+        "allowedCommonJsDependencies": [
+          "gql-query-builder"
+        ]
       },
       "configurations": {
         "production": {
@@ -55,7 +58,7 @@
     },
     "serve": {
       "continuous": true,
-      "executor": "@angular/build:dev-server",
+      "executor": "@nx/angular:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "frontend:build:production"
@@ -67,7 +70,7 @@
       "defaultConfiguration": "development"
     },
     "test": {
-      "executor": "@angular/build:unit-test",
+      "executor": "@nx/angular:unit-test",
       "options": {}
     }
   }
