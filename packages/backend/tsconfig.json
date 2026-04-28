@@ -15,6 +15,7 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "types": [
+      "compression",
       "jest",
       "node",
       "supertest"

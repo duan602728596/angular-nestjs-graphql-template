@@ -23,7 +23,8 @@ export async function requestGraphql(body: IQuery): Promise<IGraphQLResBody> {
     const res: Response = await fetch('http://localhost:5157/api/graphql', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer 123456'
       },
       body: JSON.stringify(body),
       signal: abortController.signal
