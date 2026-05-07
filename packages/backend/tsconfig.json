@@ -16,6 +16,7 @@
     "outDir": "./dist",
     "types": [
       "compression",
+      "cors",
       "jest",
       "node",
       "supertest"
