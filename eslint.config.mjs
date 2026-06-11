@@ -238,14 +238,11 @@ export default [
     languageOptions: {
       parser: typescriptEslintParser,
       parserOptions: {
-        disallowAutomaticSingleRunInference: false,
-        cacheLifetime: {
-          glob: 'Infinity'
-        },
         projectService: true,
         sourceType: 'module'
       },
-      globals: languageGlobalsOptions
+      globals: languageGlobalsOptions,
+      ecmaVersion: 'latest'
     },
     settings,
     plugins: {
@@ -265,8 +262,7 @@ export default [
             require.resolve('@sweet-milktea/babel-preset-sweet'),
             { env: { ecmascript: true } }
           ]]
-        },
-        sourceType: 'module'
+        }
       },
       globals: languageGlobalsOptions
     },
