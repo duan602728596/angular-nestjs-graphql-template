@@ -11,7 +11,8 @@
     "nx:start": "nx serve --port 5156 --verbose=false",
     "nx:build": "nx build",
     "nx:watch": "nx build --watch --configuration development",
-    "nx:test": "cross-env NX_DAEMON=false nx test"
+    "nx:test": "cross-env NX_DAEMON=false nx test",
+    "i18n": "ng extract-i18n --format=json --output-path=locales/i18n/en-US"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/shared": "workspace:*",
@@ -19,6 +20,7 @@
     "@angular/compiler": "^22.1.7",
     "@angular/core": "^22.1.7",
     "@angular/forms": "^22.1.7",
+    "@angular/localize": "^22.1.7",
     "@angular/platform-browser": "^22.1.7",
     "@angular/router": "^22.1.7",
     "@ngrx/signals": "^22.0.1",
