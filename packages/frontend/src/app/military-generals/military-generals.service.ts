@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { query } from 'gql-query-builder';
-import { requestGraphql, type IQuery, type IGraphQLQuerySchema, type IGraphQLResBody } from '../../utils/request';
-import type { IServiceDataReturnType } from '../../types/response';
+import type { IServiceDataReturnType } from '../../types/response'
+import { Injectable } from '@angular/core'
+import { query } from 'gql-query-builder'
+import { requestGraphql, type IQuery, type IGraphQLQuerySchema, type IGraphQLResBody } from '../../utils/requestGraphql'
 
 @Injectable()
 export class MilitaryGeneralsService {
@@ -9,14 +9,14 @@ export class MilitaryGeneralsService {
     const queryString: IQuery = query([{
       operation: 'militaryGenerals',
       fields: [{
-        list: ['id', 'name', 'influence']
-      }]
-    }]);
-    const res: IGraphQLResBody = await requestGraphql(queryString);
+        list: ['id', 'name', 'influence'],
+      }],
+    }])
+    const res: IGraphQLResBody = await requestGraphql(queryString)
 
     return {
       data: res.data?.militaryGenerals.list ?? [],
-      errorMessage: res?.errors?.[0].message
-    };
+      errorMessage: res?.errors?.[0].message,
+    }
   }
 }

@@ -1,13 +1,13 @@
-import { GraphQLError, type ExecutionResult } from 'graphql';
-import type { Query as IGraphQLQuerySchema } from '@backend/graphql/schema.js';
+import type { Query as IGraphQLQuerySchema } from '@backend/graphql/schema.js'
+import { GraphQLError, type ExecutionResult } from 'graphql'
 
 export interface IQuery {
-  variables: any;
-  query: string;
+  variables: any
+  query: string
 }
 
 export type IGraphQLResBody = ExecutionResult<IGraphQLQuerySchema>
-export { IGraphQLQuerySchema };
+export { IGraphQLQuerySchema }
 
 /**
  * 发送一个请求
@@ -16,29 +16,29 @@ export { IGraphQLQuerySchema };
  */
 export async function requestGraphql(body: IQuery): Promise<IGraphQLResBody> {
   try {
-    const abortController: AbortController = new AbortController();
+    const abortController: AbortController = new AbortController()
     const reqTimeoutTimer: number = setTimeout((): void => {
-      abortController.abort();
-    }, 60_000);
+      abortController.abort()
+    }, 60_000)
     const res: Response = await fetch('http://localhost:5157/api/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer 123456'
+        Authorization: 'Bearer 123456',
       },
       body: JSON.stringify(body),
-      signal: abortController.signal
-    });
+      signal: abortController.signal,
+    })
 
-    clearTimeout(reqTimeoutTimer);
+    clearTimeout(reqTimeoutTimer)
 
-    return res.json();
+    return res.json()
   } catch (err: unknown) {
-    const e: Error = err instanceof Error ? err : new Error(String(err));
+    const e: Error = err instanceof Error ? err : new Error(String(err))
 
     return {
       data: null,
-      errors: [new GraphQLError(e.message, { originalError: e })]
-    };
+      errors: [new GraphQLError(e.message, { originalError: e })],
+    }
   }
 }

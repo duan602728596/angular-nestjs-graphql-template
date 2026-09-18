@@ -1,4 +1,4 @@
-import type { CodegenConfig } from '@graphql-codegen/cli';
+import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
   schema: 'graphql/schema.gql',
@@ -6,14 +6,14 @@ const config: CodegenConfig = {
     'graphql/schema.d.ts': {
       plugins: [
         'typescript',
-        'typescript-operations'
+        'typescript-operations',
       ],
       config: {
         enumsAsTypes: true,
-        skipTypename: true
-      }
-    }
-  }
-};
+        skipTypename: true,
+      },
+    },
+  },
+}
 
-export default config;
+export default config

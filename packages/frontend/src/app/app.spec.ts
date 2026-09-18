@@ -1,19 +1,19 @@
-import { TestBed, type ComponentFixture } from '@angular/core/testing';
-import { App } from './app';
+import { TestBed, type ComponentFixture } from '@angular/core/testing'
+import { App } from './app'
 
-describe('App', (): void => {
+describe('app', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [App]
-    }).compileComponents();
-  });
+      imports: [App],
+    }).compileComponents()
+  })
 
   it('should create the app', (): void => {
-    const fixture: ComponentFixture<App> = TestBed.createComponent(App);
-    const app: App = fixture.componentInstance;
+    const fixture: ComponentFixture<App> = TestBed.createComponent(App)
+    const app: App = fixture.componentInstance
 
-    expect(app).toBeTruthy();
-  });
+    expect(app).toBeTruthy()
+  })
 
   /*
   it('should render title', async (): Promise<void> => {
@@ -26,4 +26,4 @@ describe('App', (): void => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
   });
   */
-});
+})

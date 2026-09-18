@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strict": true,
     "module": "preserve",
     "target": "ESNext",
     "paths": {
@@ -17,7 +18,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
+    "importHelpers": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,9 +1,9 @@
-import { InfluencePipe } from './influence-pipe';
+import { InfluencePipe } from './influence-pipe'
 
-describe('InfluencePipe', (): void => {
+describe('influencePipe', (): void => {
   it('create an instance', (): void => {
-    const pipe: InfluencePipe = new InfluencePipe();
+    const pipe: InfluencePipe = new InfluencePipe()
 
-    expect(pipe).toBeTruthy();
-  });
-});
+    expect(pipe).toBeTruthy()
+  })
+})

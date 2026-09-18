@@ -1,21 +1,21 @@
-import { Resolver, Query, Args, Int } from '@nestjs/graphql';
-import type { GraphQLScalarType } from 'graphql';
-import { MilitaryGeneralInformationModel } from './military-general-information.model.js';
-import { MilitaryGeneralInformationService } from './military-general-information.service.js';
+import type { GraphQLScalarType } from 'graphql'
+import { Resolver, Query, Args, Int } from '@nestjs/graphql'
+import { MilitaryGeneralInformationModel } from './military-general-information.model.js'
+import { MilitaryGeneralInformationService } from './military-general-information.service.js'
 
 @Resolver((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel)
 export class MilitaryGeneralInformationResolver {
   constructor(
-    private readonly militaryGeneralInformationService: MilitaryGeneralInformationService
+    private readonly militaryGeneralInformationService: MilitaryGeneralInformationService,
   ) {}
 
   @Query((): typeof MilitaryGeneralInformationModel => MilitaryGeneralInformationModel, {
     nullable: true,
-    description: '武将攻击力和防御力'
+    description: '武将攻击力和防御力',
   })
   militaryGeneralInformation(
-    @Args('id', { type: (): GraphQLScalarType<number> => Int }) id: number
+    @Args('id', { type: (): GraphQLScalarType<number> => Int }) id: number,
   ): MilitaryGeneralInformationModel | null {
-    return this.militaryGeneralInformationService.getMilitaryGeneralInformation(id);
+    return this.militaryGeneralInformationService.getMilitaryGeneralInformation(id)
   }
 }
