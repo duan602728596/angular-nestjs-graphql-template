@@ -3,8 +3,8 @@
   "packageManager": "yarn@4.18.0",
   "type": "module",
   "scripts": {
-    "eslint": "eslint ./ --cache --cache-location .eslintcache --no-warn-ignored",
-    "eslint:fix": "eslint ./ --fix --cache --cache-location .eslintcache --no-warn-ignored",
+    "lint": "eslint ./ --cache --cache-location .eslintcache --no-warn-ignored",
+    "lint:fix": "node --run lint -- --fix",
     "prepare": "husky"
   },
   "private": true,
@@ -28,7 +28,7 @@
     "typescript": "^6.0.3"
   },
   "lint-staged": {
-    "**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": "node --run eslint"
+    "**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": "node --run lint"
   },
   "config": {
     "commitizen": {
