@@ -7,9 +7,9 @@
     "build:watch": "rimraf ./dist && tsc -w"
   },
   "exports": {
-    "./*": {
-      "types": "./dist/*/*.d.ts",
-      "default": "./dist/*"
+    "./enum": {
+      "types": "./dist/enum/index.d.ts",
+      "default": "./dist/enum/index.js"
     }
   },
   "devDependencies": {

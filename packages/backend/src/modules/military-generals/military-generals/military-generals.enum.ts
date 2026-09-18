@@ -1,4 +1,4 @@
-import { InfluencesEnum } from '@angular-nestjs-graphql-template/shared/enum/influences.enum.js'
+import { InfluencesEnum } from '@angular-nestjs-graphql-template/shared/enum'
 import { registerEnumType } from '@nestjs/graphql'
 
 registerEnumType(InfluencesEnum, {
