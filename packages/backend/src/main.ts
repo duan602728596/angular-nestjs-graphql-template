@@ -3,8 +3,8 @@ import { env } from 'node:process'
 import { NestFactory } from '@nestjs/core'
 import compression from 'compression'
 import { AppModule } from './app.module.js'
-import { cors } from './core/_cors/cors.js'
 import { TokenGuard } from './core/guard/token.guard.js'
+import { cors } from './utils/cors/cors.js'
 
 export async function bootstrap(): Promise<void> {
   const app: INestApplication = await NestFactory.create(AppModule)

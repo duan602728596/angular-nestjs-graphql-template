@@ -1,7 +1,7 @@
 import type { GraphQLScalarType } from 'graphql'
 import { ObjectType, Field, Int } from '@nestjs/graphql'
-import { InfluencesEnum } from '../../../common/enum/influences.enum.js'
 import { MilitaryGeneralInformationModel } from '../military-general-information/military-general-information.model.js'
+import { InfluencesEnum } from './military-generals.enum.js'
 
 @ObjectType({ description: '单个武将基本信息' })
 export class MilitaryGeneralItemModel {
