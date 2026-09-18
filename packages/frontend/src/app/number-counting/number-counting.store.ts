@@ -22,11 +22,11 @@ export const NumberCountingStore: NumberCountingStoreTypes['TypeStore'] = signal
     count: 0,
   }),
 
-  withComputed((state: NumberCountingStoreTypes['SignalState']) => ({
+  withComputed((state: NumberCountingStoreTypes['SignalState']): NumberCountingStoreTypes['SignalComputed'] => ({
     isOdd: computed((): boolean => state.count() % 2 !== 0),
   })),
 
-  withMethods((store: NumberCountingStoreTypes['WritableStore']) => ({
+  withMethods((store: NumberCountingStoreTypes['WritableStore']): NumberCountingStoreTypes['Methods'] => ({
     add(): void {
       patchState(store, (state: NumberCountingStoreTypes['State']): Pick<NumberCountingStoreTypes['State'], 'count'> => ({
         count: state.count + 1,

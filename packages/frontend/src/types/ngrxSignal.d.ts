@@ -9,8 +9,14 @@ export interface ISignalStore<ISignalState = object, ISignalComputed = object, I
   // 原始 signal state
   SignalState: ISignalState
 
+  // 原始 signal computed
+  SignalComputed: ISignalComputed
+
+  // 原始 methods
+  Methods: ISignalMethods
+
   // 还原后的普通 state
-  State: SignalStateToState<this['SignalState']>
+  State: SignalStateToState<ISignalState>
 
   // 对外只读 store
   Store: ISignalState & ISignalComputed & ISignalMethods & StateSource<SignalStateToState<ISignalState>>
