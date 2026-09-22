@@ -1,14 +1,38 @@
-import { CanActivate, Injectable, UnauthorizedException, type ExecutionContext, type ContextType } from '@nestjs/common'
+import {
+  CanActivate,
+  Injectable,
+  SetMetadata,
+  UnauthorizedException,
+  type ExecutionContext,
+  type ContextType,
+  type CustomDecorator,
+} from '@nestjs/common'
+import { Reflector } from '@nestjs/core'
 import { GqlExecutionContext } from '@nestjs/graphql'
 
 interface IRequest {
   headers: Record<string, string | undefined>
 }
 
+const IS_TOKEN_PUBLIC_KEY: string = 'isTokenGuardPublic'
+
+/**
+ * 不需要token验证
+ * @constructor
+ */
+export function TokenGuardPublic(): CustomDecorator {
+  return SetMetadata(IS_TOKEN_PUBLIC_KEY, true)
+}
+
 /* token验证 */
 @Injectable()
 export class TokenGuard implements CanActivate {
+  constructor(private readonly reflector: Reflector) {}
+
   canActivate(context: ExecutionContext): boolean {
+    if (this.reflector.getAllAndOverride<boolean>(IS_TOKEN_PUBLIC_KEY, [context.getHandler(), context.getClass()]))
+      return true
+
     if (context.getType<ContextType | 'graphql'>() !== 'graphql') {
       return true
     }

@@ -9,7 +9,7 @@ import { cors } from './utils/cors/cors.js'
 export async function bootstrap(): Promise<void> {
   const app: INestApplication = await NestFactory.create(AppModule)
 
-  app.useGlobalGuards(new TokenGuard()) // 全局token验证
+  app.useGlobalGuards(app.get(TokenGuard)) // 全局token验证
   cors(app) // 跨域
   app.use(compression({ threshold: 0 })) // 压缩
   await app.listen(env.PORT ?? 5157)

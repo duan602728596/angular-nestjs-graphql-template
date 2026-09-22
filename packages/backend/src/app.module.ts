@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import { AppController } from './app.controller.js'
 import { AppService } from './app.service.js'
+import { TokenGuard } from './core/guard/token.guard.js'
 import { GraphqlModule } from './core/modules/graphql/graphql.module.js'
 
 @Module({
@@ -14,6 +15,6 @@ import { GraphqlModule } from './core/modules/graphql/graphql.module.js'
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TokenGuard],
 })
 export class AppModule {}
