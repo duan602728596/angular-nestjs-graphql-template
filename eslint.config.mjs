@@ -1,4 +1,4 @@
-import { antfu, angular, combine } from '@antfu/eslint-config'
+import { angular, antfu, combine } from '@antfu/eslint-config'
 
 const angularConfigs = await angular()
 
@@ -6,14 +6,17 @@ export default combine(
   antfu({
     imports: {
       overrides: {
-        'import/consistent-type-specifier-style': ['off'],
+        'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       },
     },
     jsonc: false,
     node: true,
     perfectionist: {
       overrides: {
-        'perfectionist/sort-named-imports': ['off'],
+        'perfectionist/sort-named-imports': ['error', {
+          type: 'alphabetical',
+          partitionByNewLine: true,
+        }],
       },
     },
     markdown: false,

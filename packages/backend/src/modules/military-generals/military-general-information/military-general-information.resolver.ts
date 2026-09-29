@@ -1,5 +1,5 @@
 import type { GraphQLScalarType } from 'graphql'
-import { Resolver, Query, Args, Int } from '@nestjs/graphql'
+import { Args, Int, Query, Resolver } from '@nestjs/graphql'
 import { MilitaryGeneralInformationModel } from './military-general-information.model.js'
 import { MilitaryGeneralInformationService } from './military-general-information.service.js'
 

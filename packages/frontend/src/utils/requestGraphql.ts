@@ -1,5 +1,5 @@
 import type { Query as IGraphQLQuerySchema } from '@backend/graphql/schema.js'
-import { GraphQLError, type ExecutionResult } from 'graphql'
+import { type ExecutionResult, GraphQLError } from 'graphql'
 
 export interface IQuery {
   variables: any

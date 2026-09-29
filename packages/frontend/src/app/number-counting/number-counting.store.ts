@@ -1,6 +1,6 @@
 import type { ISignalStore } from '../../types/ngrxSignal'
 import { computed, type Signal } from '@angular/core'
-import { signalStore, withState, withComputed, withMethods, patchState } from '@ngrx/signals'
+import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals'
 
 export type NumberCountingStoreTypes = ISignalStore<
   {

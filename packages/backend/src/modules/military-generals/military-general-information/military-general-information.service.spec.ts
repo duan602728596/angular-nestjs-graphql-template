@@ -1,5 +1,4 @@
-import type { TestingModule } from '@nestjs/testing'
-import { Test } from '@nestjs/testing'
+import { Test, type TestingModule } from '@nestjs/testing'
 import { MilitaryGeneralInformationService } from './military-general-information.service.js'
 
 describe('militaryGeneralInformationService', (): void => {

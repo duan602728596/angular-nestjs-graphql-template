@@ -1,4 +1,4 @@
-import { TestBed, type ComponentFixture } from '@angular/core/testing'
+import { type ComponentFixture, TestBed } from '@angular/core/testing'
 import { testProvideRoutes } from '../../utils/testMock'
 import { MilitaryGenerals } from './military-generals'
 

@@ -1,4 +1,4 @@
-import { TestBed, type ComponentFixture } from '@angular/core/testing'
+import { type ComponentFixture, TestBed } from '@angular/core/testing'
 import { App } from './app'
 
 describe('app', (): void => {

@@ -1,5 +1,5 @@
 import { join } from 'node:path'
-import { env, cwd } from 'node:process'
+import { cwd, env } from 'node:process'
 import { generate, loadCodegenConfig, type LoadCodegenConfigResult } from '@graphql-codegen/cli'
 import { Injectable, OnModuleInit } from '@nestjs/common'
 

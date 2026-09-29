@@ -1,5 +1,4 @@
-import type { TestingModule } from '@nestjs/testing'
-import { Test } from '@nestjs/testing'
+import { Test, type TestingModule } from '@nestjs/testing'
 import { CodegenService } from './codegen.service.js'
 
 describe('codegenService', (): void => {
