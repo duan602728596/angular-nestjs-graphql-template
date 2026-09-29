@@ -1,13 +1,4 @@
-import {
-  CanActivate,
-  Injectable,
-  SetMetadata,
-  UnauthorizedException,
-
-  type ContextType,
-  type CustomDecorator,
-  type ExecutionContext,
-} from '@nestjs/common'
+import { CanActivate, type ContextType, type CustomDecorator, type ExecutionContext, Injectable, SetMetadata, UnauthorizedException } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { GqlExecutionContext } from '@nestjs/graphql'
 
@@ -19,7 +10,7 @@ const IS_TOKEN_PUBLIC_KEY: string = 'isTokenGuardPublic'
 
 /**
  * 不需要token验证
- * @constructor
+ * @return {CustomDecorator}
  */
 export function TokenGuardPublic(): CustomDecorator {
   return SetMetadata(IS_TOKEN_PUBLIC_KEY, true)

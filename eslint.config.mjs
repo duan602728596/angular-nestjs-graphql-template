@@ -41,6 +41,9 @@ export default combine(
       },
     },
     rules: {
+      'antfu/consistent-list-newline': ['error', {
+        ImportDeclaration: false,
+      }],
       'antfu/no-top-level-await': ['off'],
       'no-console': ['off'],
       'prefer-arrow-callback': ['off'],
