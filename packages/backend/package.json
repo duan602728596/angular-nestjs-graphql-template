@@ -11,10 +11,10 @@
     "codegen:build": "node dist/scripts/graphql/graphql.generate.js && graphql-codegen",
     "codegen:watch": "graphql-codegen --watch",
     "spectaql:build": "spectaql spectaql.config.yaml",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.ts",
+    "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest --config jest.config.ts",
     "test:watch": "node --run test -- --watch",
     "test:cov": "node --run test -- --coverage",
-    "test:e2e": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --config jest-e2e.config.ts"
+    "test:e2e": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest --config jest-e2e.config.ts"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/shared": "workspace:*",
@@ -45,7 +45,6 @@
     "@types/supertest": "^7",
     "cross-env": "^10.1.0",
     "jest": "^30.5.1",
-    "source-map-support": "^0.5.21",
     "spectaql": "^3.0.9",
     "supertest": "^7.2.2",
     "ts-jest": "^29.4.12",
