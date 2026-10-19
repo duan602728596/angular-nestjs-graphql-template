@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5156",
+    "start": "ng serve --host 0.0.0.0 --port 5156",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "nx:start": "nx serve --port 5156 --verbose=false",
+    "nx:start": "nx serve --host 0.0.0.0 --port 5156 --verbose=false",
     "nx:build": "nx build",
     "nx:watch": "nx build --watch --configuration development",
     "nx:test": "cross-env NX_DAEMON=false nx test",
