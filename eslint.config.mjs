@@ -23,6 +23,7 @@ export default combine(
     stylistic: {
       overrides: {
         'style/brace-style': ['error', '1tbs'],
+        'style/linebreak-style': ['error', 'unix'],
         'style/multiline-ternary': ['off'],
         'style/quote-props': ['error', 'as-needed'],
         'style/quotes': ['error', 'single', { avoidEscape: true }],
