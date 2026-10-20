@@ -3,18 +3,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_ENV=production nest build",
-    "start": "cross-env NODE_ENV=development nest start",
-    "start:dev": "cross-env NODE_ENV=development nest start --watch",
-    "start:debug": "cross-env NODE_ENV=development nest start --debug --watch",
+    "build": "cross-env NODE_ENV=production NODE_OPTIONS=\"--enable-source-maps\" nest build",
+    "start": "cross-env NODE_ENV=development NODE_OPTIONS=\"--enable-source-maps\" nest start",
+    "start:dev": "node --run start -- --watch",
+    "start:debug": "node --run start:dev -- --debug",
     "start:prod": "cross-env NODE_OPTIONS=\"--enable-source-maps\" node dist/main.js",
     "codegen:build": "node dist/scripts/graphql/graphql.generate.js && graphql-codegen",
     "codegen:watch": "graphql-codegen --watch",
     "spectaql:build": "spectaql spectaql.config.yaml",
-    "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest --config jest.config.ts",
+    "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --enable-source-maps\" jest --config jest.config.ts",
     "test:watch": "node --run test -- --watch",
     "test:cov": "node --run test -- --coverage",
-    "test:e2e": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest --config jest-e2e.config.ts"
+    "test:e2e": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --enable-source-maps\" jest --config jest-e2e.config.ts"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/shared": "workspace:*",
