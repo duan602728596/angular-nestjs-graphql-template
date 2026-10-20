@@ -1,9 +1,9 @@
-import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { parseArgs } from 'node:util'
 import compression from 'compression'
 import express, { type Express, type NextFunction, type Request, type Response } from 'express'
+import { exists, nil } from './verify.ts'
 
 /* ========== 读取配置 ========== */
 const { values: args, positionals } = parseArgs({
@@ -17,18 +17,10 @@ const { values: args, positionals } = parseArgs({
 })
 
 const rootDir: string = cwd()
-const staticDir: string = positionals[0]
-
-if (!staticDir)
-  throw new Error('The resource directory must be provided.')
-
-const absStaticDir: string = join(rootDir, staticDir)
-
-if (!existsSync(absStaticDir))
-  throw new Error('The resource directory does not exist.')
-
-const port: number = Number(args.port)
+const staticDir: string = nil(positionals[0], 'The resource directory must be provided.')
+const absStaticDir: string = exists(join(rootDir, staticDir), 'The resource directory does not exist.')
 const indexFile: string = join(absStaticDir, 'index.html')
+const port: number = Number(args.port)
 
 /* ========== 启动服务 ========== */
 const app: Express = express()
