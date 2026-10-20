@@ -1,7 +1,8 @@
 import { join } from 'node:path'
-import { cwd, env } from 'node:process'
+import { env } from 'node:process'
 import { generate, loadCodegenConfig, type LoadCodegenConfigResult } from '@graphql-codegen/cli'
 import { Injectable, OnModuleInit } from '@nestjs/common'
+import { rootDir } from '../../../utils/metaHelper/metaHelper.ts'
 
 @Injectable()
 export class CodegenService implements OnModuleInit {
@@ -11,7 +12,7 @@ export class CodegenService implements OnModuleInit {
     }
 
     const codegenConfig: LoadCodegenConfigResult = await loadCodegenConfig({
-      configFilePath: join(cwd(), 'codegen.ts'),
+      configFilePath: join(rootDir, 'codegen.ts'),
     })
 
     await generate(codegenConfig.config, true)

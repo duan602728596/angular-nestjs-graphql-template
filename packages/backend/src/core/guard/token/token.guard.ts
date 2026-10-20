@@ -1,6 +1,7 @@
 import { CanActivate, type ContextType, type CustomDecorator, type ExecutionContext, Injectable, SetMetadata, UnauthorizedException } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { GqlExecutionContext } from '@nestjs/graphql'
+import { TokenExceptionMessageEnum } from './token.enum.ts'
 
 interface IRequest {
   headers: Record<string, string | undefined>
@@ -34,13 +35,13 @@ export class TokenGuard implements CanActivate {
     const token: string | undefined = req.headers.authorization
 
     if (!token) {
-      throw new UnauthorizedException('Missing Authorization')
+      throw new UnauthorizedException(TokenExceptionMessageEnum.Missing)
     }
 
     const [tokenKey, tokenValue]: Array<string> = token.split(/\s+/)
 
     if (tokenKey.toLowerCase() !== 'bearer' || tokenValue !== '123456') {
-      throw new UnauthorizedException('Invalid token')
+      throw new UnauthorizedException(TokenExceptionMessageEnum.Invalid)
     }
 
     return true

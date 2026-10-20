@@ -11,6 +11,7 @@ export default defineConfig({
     }],
   },
   moduleNameMapper: {
+    '^graphql-tag$': 'graphql-tag/lib/index.js',
     '^(\\.{1,2}/.*)\\.m?js$': '$1',
   },
   moduleFileExtensions: [
