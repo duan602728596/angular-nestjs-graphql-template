@@ -1,6 +1,6 @@
-import type { MilitaryGeneralItemModel } from './military-generals.model.js'
+import type { MilitaryGeneralItemModel } from './military-generals.model.ts'
 import { Injectable } from '@nestjs/common'
-import { militaryGeneralsMockData } from './military-generals.mock.js'
+import { militaryGeneralsMockData } from './military-generals.mock.ts'
 
 @Injectable()
 export class MilitaryGeneralsService {

@@ -1,9 +1,9 @@
 import type { GraphQLScalarType } from 'graphql'
 import { Args, Int, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql'
-import { MilitaryGeneralInformationModel } from '../military-general-information/military-general-information.model.js'
-import { MilitaryGeneralInformationService } from '../military-general-information/military-general-information.service.js'
-import { MilitaryGeneralItemModel, MilitaryGeneralsModel } from './military-generals.model.js'
-import { MilitaryGeneralsService } from './military-generals.service.js'
+import { MilitaryGeneralInformationModel } from '../military-general-information/military-general-information.model.ts'
+import { MilitaryGeneralInformationService } from '../military-general-information/military-general-information.service.ts'
+import { MilitaryGeneralItemModel, MilitaryGeneralsModel } from './military-generals.model.ts'
+import { MilitaryGeneralsService } from './military-generals.service.ts'
 
 @Resolver((): typeof MilitaryGeneralItemModel => MilitaryGeneralItemModel)
 export class MilitaryGeneralItemResolver {

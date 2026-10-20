@@ -1,5 +1,5 @@
 import { Test, type TestingModule } from '@nestjs/testing'
-import { MilitaryGeneralInformationService } from './military-general-information.service.js'
+import { MilitaryGeneralInformationService } from './military-general-information.service.ts'
 
 describe('militaryGeneralInformationService', (): void => {
   let service: MilitaryGeneralInformationService

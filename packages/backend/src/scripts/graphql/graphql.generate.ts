@@ -1,6 +1,6 @@
 import type { INestApplicationContext } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
-import { GraphqlModule } from '../../core/modules/graphql/graphql.module.js'
+import { GraphqlModule } from '../../core/modules/graphql/graphql.module.ts'
 
 /* 可执行文件：用来创建gql文件 */
 async function generate(): Promise<void> {

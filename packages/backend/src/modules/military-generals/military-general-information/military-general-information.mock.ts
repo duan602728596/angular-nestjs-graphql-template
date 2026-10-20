@@ -1,4 +1,4 @@
-import type { MilitaryGeneralInformationModel } from './military-general-information.model.js'
+import type { MilitaryGeneralInformationModel } from './military-general-information.model.ts'
 
 export const militaryGeneralInformationMockData: Array<MilitaryGeneralInformationModel> = [
   { id: 1, attack: 90, defense: 92 },

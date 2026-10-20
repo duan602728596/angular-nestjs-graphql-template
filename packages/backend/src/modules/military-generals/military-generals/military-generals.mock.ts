@@ -1,5 +1,5 @@
-import type { MilitaryGeneralItemModel } from './military-generals.model.js'
-import { InfluencesEnum } from './military-generals.enum.js'
+import type { MilitaryGeneralItemModel } from './military-generals.model.ts'
+import { InfluencesEnum } from './military-generals.enum.ts'
 
 export const militaryGeneralsMockData: Array<MilitaryGeneralItemModel> = [
   { id: 1, name: '刘备', influence: InfluencesEnum.Shu },
