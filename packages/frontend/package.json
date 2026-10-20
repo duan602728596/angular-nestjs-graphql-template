@@ -12,7 +12,8 @@
     "nx:build": "nx build",
     "nx:watch": "nx build --watch --configuration development",
     "nx:test": "cross-env NX_DAEMON=false nx test",
-    "i18n": "ng extract-i18n --format=json --output-path=locales/i18n/en-US"
+    "i18n": "ng extract-i18n --format=json --output-path=locales/i18n/en-US",
+    "serve": "frontendServe ./dist/browser"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/shared": "workspace:*",
@@ -22,7 +23,7 @@
     "@angular/forms": "^22.1.7",
     "@angular/localize": "^22.1.7",
     "@angular/platform-browser": "^22.1.7",
-    "@angular/router": "^22.1.7",
+    "@angular/router": "^22.2.1",
     "@ngrx/signals": "^22.0.1",
     "gql-query-builder": "^4.0.1",
     "ng-zorro-antd": "^22.1.0",

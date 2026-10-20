@@ -1,4 +1,9 @@
 [mcp_servers.angular]
 command = "node"
-args = ["--run", "ng", "--", "mcp"]
+args = [
+  "--run",
+  "ng",
+  "--",
+  "mcp",
+]
 cwd = "packages/frontend"
