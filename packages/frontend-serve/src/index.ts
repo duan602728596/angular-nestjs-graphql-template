@@ -1,61 +1,84 @@
 import { join } from 'node:path'
-import { cwd } from 'node:process'
-import { parseArgs } from 'node:util'
 import compression from 'compression'
 import express, { type Express, type NextFunction, type Request, type Response } from 'express'
-import { exists, nil } from './verify.ts'
 
-/* ========== 读取配置 ========== */
-const { values: args, positionals } = parseArgs({
-  options: {
-    port: {
-      type: 'string',
-      default: '5160',
-    },
-  },
-  allowPositionals: true,
-})
+type TMiddlewareFunc = (req: Request, res: Response, next: NextFunction) => any
 
-const rootDir: string = cwd()
-const staticDir: string = nil(positionals[0], 'The resource directory must be provided.')
-const absStaticDir: string = exists(join(rootDir, staticDir), 'The resource directory does not exist.')
-const indexFile: string = join(absStaticDir, 'index.html')
-const port: number = Number(args.port)
+export interface IServerOptions {
+  /** 静态资源服务路径 */
+  staticDir: string
+  /** 是否是ssr */
+  ssrMiddleware?: TMiddlewareFunc
+  /** 端口 */
+  port?: number
+}
 
-/* ========== 启动服务 ========== */
-const app: Express = express()
+/**
+ * 启动服务
+ */
+export class Server {
+  public app: Express = express()
+  public staticDir: string
+  public indexFile: string
+  public handleServerSideRenderMiddleware?: TMiddlewareFunc
+  public port: number
 
-// 压缩
-app.use(compression({ threshold: 0 }))
-
-// 静态资源
-app.use(express.static(absStaticDir, {
-  index: false,
-  fallthrough: true,
-  maxAge: 365 * 24 * (60 ** 2) * (10 ** 3),
-}))
-
-// 路由
-app.use((req: Request, res: Response, next: NextFunction): void => {
-  if (req.method !== 'GET' || !req.accepts('html')) {
-    return next()
+  static instance(options: IServerOptions): Server {
+    return new Server(options)
   }
 
-  res.setHeader('Content-Type', 'text/html; charset=utf-8')
-  res.sendFile(indexFile, (error: Error | undefined): void => {
-    if (error)
-      next(error)
-  })
-})
+  constructor(options: IServerOptions) {
+    this.staticDir = options.staticDir
+    this.indexFile = join(this.staticDir, 'index.html')
+    this.handleServerSideRenderMiddleware = options.ssrMiddleware
+    this.port = options.port ?? 5_160
+    this.middlewareInit()
+  }
 
-// 404
-app.use((req: Request, res: Response): void => {
-  res
-    .status(404)
-    .setHeader('Content-Type', 'text/html; charset=utf-8')
-    .send('Not Found')
-})
+  // 监听中间件
+  middlewareInit(): void {
+    // 压缩
+    this.app.use(compression({ threshold: 0 }))
 
-app.listen(port, '0.0.0.0', (): void => {
-  console.log(`Start: http://localhost:${port}`)
-})
+    // 静态资源
+    this.app.use(express.static(this.staticDir, {
+      index: false,
+      fallthrough: true,
+      maxAge: 365 * 24 * (60 ** 2) * (10 ** 3),
+    }))
+
+    // 路由处理
+    this.app.use(this.handleServerSideRenderMiddleware ?? this.handleAllRoutesMiddleware)
+
+    // 404处理
+    this.app.use(this.handle404NotFoundRouteMiddleware)
+  }
+
+  // 非SSR环境下的路由处理
+  handleAllRoutesMiddleware: TMiddlewareFunc = (req: Request, res: Response, next: NextFunction): void => {
+    if (req.method !== 'GET' || !req.accepts('html')) {
+      return next()
+    }
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    res.sendFile(this.indexFile, (error: Error | undefined): void => {
+      if (error)
+        next(error)
+    })
+  }
+
+  // 404
+  handle404NotFoundRouteMiddleware: TMiddlewareFunc = (req: Request, res: Response): void => {
+    res
+      .status(404)
+      .setHeader('Content-Type', 'text/html; charset=utf-8')
+      .send('404 Not Found')
+  }
+
+  // 启动
+  start(): void {
+    this.app.listen(this.port, '0.0.0.0', (): void => {
+      console.log(`Start: http://localhost:${this.port}`)
+    })
+  }
+}

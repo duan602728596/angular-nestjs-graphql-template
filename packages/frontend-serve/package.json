@@ -1,5 +1,5 @@
 {
-  "name": "@file-preview-online/frontend-serve",
+  "name": "@angular-nestjs-graphql-template/frontend-serve",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -7,7 +7,13 @@
     "build:watch": "rimraf ./dist && tsc -w"
   },
   "bin": {
-    "frontendServe": "./dist/index.js"
+    "frontendServe": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "dependencies": {
     "compression": "^1.8.2",

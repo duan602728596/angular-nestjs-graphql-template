@@ -17,7 +17,7 @@ export { IGraphQLQuerySchema }
 export async function requestGraphql(body: IQuery): Promise<IGraphQLResBody> {
   try {
     const abortController: AbortController = new AbortController()
-    const reqTimeoutTimer: number = setTimeout((): void => {
+    const reqTimeoutTimer: number | NodeJS.Timeout = setTimeout((): void => {
       abortController.abort()
     }, 60_000)
     const res: Response = await fetch('http://localhost:5157/api/graphql', {

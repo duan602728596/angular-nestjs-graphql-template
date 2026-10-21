@@ -13,9 +13,11 @@
     "nx:watch": "nx build --watch --configuration development",
     "nx:test": "cross-env NX_DAEMON=false nx test",
     "i18n": "ng extract-i18n --format=json --output-path=locales/i18n/en-US",
-    "serve": "frontendServe ./dist/browser"
+    "serve": "frontendServe ./dist/browser",
+    "serve:ssr": "node ./dist/server/server.mjs"
   },
   "dependencies": {
+    "@angular-nestjs-graphql-template/frontend-serve": "workspace:*",
     "@angular-nestjs-graphql-template/shared": "workspace:*",
     "@angular/common": "^22.1.7",
     "@angular/compiler": "^22.1.7",
@@ -23,7 +25,9 @@
     "@angular/forms": "^22.1.7",
     "@angular/localize": "^22.1.7",
     "@angular/platform-browser": "^22.1.7",
+    "@angular/platform-server": "^22",
     "@angular/router": "^22.2.1",
+    "@angular/ssr": "^22.2.3",
     "@ngrx/signals": "^22.0.1",
     "gql-query-builder": "^4.0.1",
     "ng-zorro-antd": "^22.1.0",
@@ -36,6 +40,7 @@
     "@angular/cli": "^22.1.8",
     "@angular/compiler-cli": "^22.1.7",
     "@tailwindcss/postcss": "^4.3.3",
+    "@types/express": "^5",
     "cross-env": "^10.1.0",
     "jsdom": "^29.1.1",
     "tailwindcss": "^4.3.3",

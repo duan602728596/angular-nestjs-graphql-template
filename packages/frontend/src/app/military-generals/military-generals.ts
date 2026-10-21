@@ -1,7 +1,7 @@
 import type { IServiceDataReturnType } from '../../types/response'
 import type { IGraphQLQuerySchema } from '../../utils/requestGraphql'
 import { NgTemplateOutlet } from '@angular/common'
-import { Component, inject, OnInit, signal, type WritableSignal } from '@angular/core'
+import { Component, inject, OnInit, PendingTasks, signal, type WritableSignal } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { NzButtonComponent } from 'ng-zorro-antd/button'
 import { NzMessageService } from 'ng-zorro-antd/message'
@@ -24,6 +24,7 @@ import { MilitaryGeneralsService } from './military-generals.service'
   styleUrl: './military-generals.sass',
 })
 export class MilitaryGenerals implements OnInit {
+  pendingTasks: PendingTasks = inject(PendingTasks)
   message: NzMessageService = inject(NzMessageService)
   militaryGeneralsService: MilitaryGeneralsService = inject(MilitaryGeneralsService)
 
@@ -42,6 +43,6 @@ export class MilitaryGenerals implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMilitaryGenerals()
+    this.pendingTasks.run((): Promise<void> => this.getMilitaryGenerals())
   }
 }

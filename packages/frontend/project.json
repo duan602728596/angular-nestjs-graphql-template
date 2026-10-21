@@ -30,7 +30,16 @@
         "extractLicenses": false,
         "allowedCommonJsDependencies": [
           "gql-query-builder"
-        ]
+        ],
+
+        "server": "packages/frontend/src/main.server.ts",
+        "outputMode": "server",
+        "security": {
+          "allowedHosts": []
+        },
+        "ssr": {
+          "entry": "packages/frontend/src/server.ts"
+        }
       },
       "configurations": {
         "production": {
