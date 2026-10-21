@@ -14,7 +14,7 @@
     "nx:test": "cross-env NX_DAEMON=false nx test",
     "i18n": "ng extract-i18n --format=json --output-path=locales/i18n/en-US",
     "serve": "frontendServe ./dist/browser",
-    "serve:ssr": "node ./dist/server/server.mjs"
+    "serve:ssr": "node --enable-source-maps ./dist/server/server.mjs"
   },
   "dependencies": {
     "@angular-nestjs-graphql-template/frontend-serve": "workspace:*",
