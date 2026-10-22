@@ -35,6 +35,9 @@
         "allowedCommonJsDependencies": [
           "gql-query-builder"
         ],
+        "polyfills": [
+          "@angular/localize/init"
+        ],
 
         "server": "packages/frontend/src/main.server.ts",
         "outputMode": "server",
