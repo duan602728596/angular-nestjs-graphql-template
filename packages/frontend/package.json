@@ -29,6 +29,7 @@
     "@angular/router": "^22.2.1",
     "@angular/ssr": "^22.2.3",
     "@ngrx/signals": "^22.0.1",
+    "@ngx-translate/core": "^18.0.0",
     "gql-query-builder": "^4.0.1",
     "ng-zorro-antd": "^22.1.0",
     "rxjs": "^7.8.2",

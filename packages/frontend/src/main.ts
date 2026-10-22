@@ -2,12 +2,14 @@
 
 import type { ApplicationConfig } from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
-import { getLocaleBaseHref, type IParseLocaleReturnType, loadI18n, parseLocale } from '#utils/i18n'
+import { getLocaleBaseHref, type IParseLocaleReturnType, parseLocale } from '#utils/i18n'
 import { App } from './app/app'
 import { createAppConfig } from './app/app.config'
 
 const parsedPathnameLocale: IParseLocaleReturnType | undefined = parseLocale(window.location.pathname)
-const locale: string = await loadI18n(parsedPathnameLocale?.locale)
-const appConfig: ApplicationConfig = await createAppConfig(locale, getLocaleBaseHref(parsedPathnameLocale?.rawLocale))
+const appConfig: ApplicationConfig = await createAppConfig(
+  parsedPathnameLocale?.locale,
+  getLocaleBaseHref(parsedPathnameLocale?.rawLocale),
+)
 
 bootstrapApplication(App, appConfig).catch((err: Error): void => console.error(err))

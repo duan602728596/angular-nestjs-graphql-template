@@ -1,3 +1,5 @@
+/// <reference types="@angular/localize" />
+
 import { type ApplicationConfig, type ApplicationRef, REQUEST } from '@angular/core'
 import { bootstrapApplication, type BootstrapContext } from '@angular/platform-browser'
 import { getLocaleBaseHref, type IParseLocaleReturnType, parseLocale } from '#utils/i18n'

@@ -1,5 +1,4 @@
 import type { NzI18nInterface } from 'ng-zorro-antd/i18n'
-import { loadTranslations } from '@angular/localize'
 
 export interface II18nMessages {
   locale: string
@@ -9,18 +8,6 @@ export interface II18nMessages {
 export interface ILocaleItem {
   i18n: NzI18nInterface
   ngLocale?: any
-}
-
-/**
- * 加载一个i18n文件
- * @param {string} locale
- * @return {Promise<string>}
- */
-export async function loadI18n(locale: string = 'en-US'): Promise<string> {
-  const messages: II18nMessages = await fetch(`/i18n/${locale}/messages.json`)
-    .then((res: Response): Promise<II18nMessages> => res.json())
-  loadTranslations(messages.translations)
-  return locale
 }
 
 /** 所有locale文件 */

@@ -20,10 +20,6 @@
           {
             "glob": "**/*",
             "input": "packages/frontend/public"
-          },
-          {
-            "glob": "**/*",
-            "input": "packages/frontend/locales"
           }
         ],
         "styles": [

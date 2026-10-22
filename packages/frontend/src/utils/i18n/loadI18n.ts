@@ -9,11 +9,11 @@ const i18nMap: Record<string, () => TI18nMessageModule> = {
 }
 
 /**
- * SSR环境加载i18n
+ * 加载i18n
  * @param {string} locale
  * @return {Promise<string>}
  */
-export async function loadSSRI18n(locale: string): Promise<string> {
+export async function loadI18n(locale: string): Promise<string> {
   const messages: II18nMessages = (await i18nMap[locale]()).default
   loadTranslations(messages.translations)
   return locale

@@ -3,6 +3,7 @@ import type { IServiceDataReturnType } from '../../types/response'
 import { NgTemplateOutlet } from '@angular/common'
 import { Component, inject, OnInit, PendingTasks, signal, type WritableSignal } from '@angular/core'
 import { RouterLink } from '@angular/router'
+import { TranslatePipe } from '@ngx-translate/core'
 import { NzButtonComponent } from 'ng-zorro-antd/button'
 import { NzMessageService } from 'ng-zorro-antd/message'
 import { InfluencePipe } from './influence-pipe'
@@ -17,6 +18,7 @@ import { MilitaryGeneralsService } from './military-generals.service'
   imports: [
     NgTemplateOutlet,
     RouterLink,
+    TranslatePipe,
     NzButtonComponent,
     InfluencePipe,
   ],
