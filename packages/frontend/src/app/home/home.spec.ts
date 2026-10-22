@@ -1,5 +1,5 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing'
-import { testProvideRoutes } from '../../utils/testMock'
+import { appRoutesProviders } from '../app.routes'
 import { Home } from './home'
 
 describe('home', (): void => {
@@ -9,7 +9,7 @@ describe('home', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [testProvideRoutes],
+      providers: [appRoutesProviders],
     }).compileComponents()
 
     fixture = TestBed.createComponent(Home)

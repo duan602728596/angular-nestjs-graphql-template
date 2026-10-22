@@ -9,6 +9,9 @@
     "paths": {
       "@backend/*": [
         "../backend/*"
+      ],
+      "#utils/*": [
+        "./src/utils/*"
       ]
     },
     "noImplicitOverride": true,

@@ -1,5 +1,5 @@
+import type { IGraphQLQuerySchema } from '#utils/requestGraphql'
 import type { IServiceDataReturnType } from '../../types/response'
-import type { IGraphQLQuerySchema } from '../../utils/requestGraphql'
 import { NgTemplateOutlet } from '@angular/common'
 import { Component, inject, OnInit, PendingTasks, signal, type WritableSignal } from '@angular/core'
 import { RouterLink } from '@angular/router'

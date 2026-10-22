@@ -1,4 +1,4 @@
-import type { Query as IGraphQLQuerySchema } from '@backend/graphql/schema.js'
+import type { Query as IGraphQLQuerySchema } from '@backend/graphql/schema'
 import { type ExecutionResult, GraphQLError } from 'graphql'
 
 export interface IQuery {

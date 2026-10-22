@@ -10,5 +10,17 @@
     "**/*spec.ts",
     "./codegen.ts",
     "./graphql"
-  ]
+  ],
+  "watchOptions": {
+    "excludeDirectories": [
+      "../../**/node_modules",
+      "./.nest",
+      "./dist",
+      "./graphql",
+      "./public",
+      "./test",
+      "../frontend",
+      "../frontend-serve"
+    ]
+  }
 }
