@@ -5,7 +5,14 @@ import { Home } from './home/home'
 import { MilitaryGenerals } from './military-generals/military-generals'
 import { NumberCounting } from './number-counting/number-counting'
 
-/* 处理语言 */
+/**
+ * 处理URL上的语言，规则为：
+ * /xyz/      -> en-US
+ * /en-US/xyz -> en-US
+ * /zh-CN/xyz -> zh-CN
+ * @param {Array<UrlSegment>} segments
+ * @return {UrlMatchResult}
+ */
 function optionalLocaleMatcher(segments: Array<UrlSegment>): UrlMatchResult {
   const firstSegment: UrlSegment = segments[0]
 

@@ -15,15 +15,13 @@ describe('app', (): void => {
     expect(app).toBeTruthy()
   })
 
-  /*
-  it('should render title', async (): Promise<void> => {
-    const fixture: ComponentFixture<App> = TestBed.createComponent(App);
+  it('should render button', async (): Promise<void> => {
+    const fixture: ComponentFixture<App> = TestBed.createComponent(App)
 
-    await fixture.whenStable();
+    await fixture.whenStable()
 
-    const compiled: HTMLElement = fixture.nativeElement as HTMLElement;
-
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
-  });
-  */
+    const compiled: HTMLElement = fixture.nativeElement as HTMLElement
+    const routerOutlet: HTMLElement | null = compiled.querySelector('router-outlet')
+    expect(routerOutlet).not.toBeNull()
+  })
 })

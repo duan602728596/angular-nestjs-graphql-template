@@ -1,5 +1,5 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing'
-import { appRoutesProviders } from '../app.routes'
+import { createTestAppConfig } from '../app.config.test'
 import { MilitaryGenerals } from './military-generals'
 
 describe('militaryGenerals', (): void => {
@@ -9,7 +9,7 @@ describe('militaryGenerals', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       imports: [MilitaryGenerals],
-      providers: [appRoutesProviders],
+      providers: createTestAppConfig().providers,
     }).compileComponents()
 
     fixture = TestBed.createComponent(MilitaryGenerals)

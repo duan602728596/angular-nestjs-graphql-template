@@ -1,5 +1,5 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing'
-import { appRoutesProviders } from '../app.routes'
+import { createTestAppConfig } from '../app.config.test'
 import { NumberCounting } from './number-counting'
 
 describe('numberCounting', (): void => {
@@ -9,7 +9,7 @@ describe('numberCounting', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       imports: [NumberCounting],
-      providers: [appRoutesProviders],
+      providers: createTestAppConfig().providers,
     }).compileComponents()
 
     fixture = TestBed.createComponent(NumberCounting)

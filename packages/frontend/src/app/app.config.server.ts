@@ -15,7 +15,7 @@ const serverConfig: ApplicationConfig = {
  * @param {string} baseHref
  * @return {Promise<ApplicationConfig>}
  */
-export async function createServerAppConfig(locale: string = 'en-US', baseHref: string | undefined): Promise<ApplicationConfig> {
+export async function createServerAppConfig(locale: string = 'en-US', baseHref: string | undefined = undefined): Promise<ApplicationConfig> {
   const appConfig: ApplicationConfig = await createAppConfig(locale, baseHref)
   return mergeApplicationConfig(appConfig, serverConfig)
 }

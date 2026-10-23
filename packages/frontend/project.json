@@ -83,7 +83,11 @@
     },
     "test": {
       "executor": "@nx/angular:unit-test",
-      "options": {}
+      "options": {
+        "exclude": [
+          "packages/frontend/src/app/app.config.test.ts"
+        ]
+      }
     }
   }
 }
