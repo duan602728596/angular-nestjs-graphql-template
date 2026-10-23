@@ -1,6 +1,12 @@
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import compression from 'compression'
 import express, { type Express, type NextFunction, type Request, type Response } from 'express'
+import mime from 'mime'
+import { type IMetaHelperReturn, metaHelper } from './utils.ts'
+
+const { __dirname }: IMetaHelperReturn = metaHelper(import.meta.url)
+const templateDir: string = join(__dirname, '../template')
 
 type TMiddlewareFunc = (req: Request, res: Response, next: NextFunction) => any
 
@@ -22,6 +28,7 @@ export class Server {
   public indexFile: string
   public handleServerSideRenderMiddleware?: TMiddlewareFunc
   public port: number
+  #pageNotFound404File: string = join(templateDir, '404.html')
 
   static instance(options: IServerOptions): Server {
     return new Server(options)
@@ -29,7 +36,7 @@ export class Server {
 
   constructor(options: IServerOptions) {
     this.staticDir = options.staticDir
-    this.indexFile = join(this.staticDir, 'index.html')
+    this.indexFile = this.getIndexFile()
     this.handleServerSideRenderMiddleware = options.ssrMiddleware
     this.port = options.port ?? 5_160
     this.middlewareInit()
@@ -56,23 +63,29 @@ export class Server {
 
   // 非SSR环境下的路由处理
   handleAllRoutesMiddleware: TMiddlewareFunc = (req: Request, res: Response, next: NextFunction): void => {
-    if (req.method !== 'GET' || !req.accepts('html')) {
+    const mimeType: string | null = mime.getType(req.url)
+
+    if (req.method !== 'GET' || !(!mimeType || mimeType === 'text/html')) {
       return next()
     }
 
-    res.setHeader('Content-Type', 'text/html; charset=utf-8')
-    res.sendFile(this.indexFile, (error: Error | undefined): void => {
-      if (error)
-        next(error)
-    })
+    res
+      .setHeader('Content-Type', 'text/html; charset=utf-8')
+      .sendFile(this.indexFile, (error: Error | undefined): void => {
+        if (error)
+          next(error)
+      })
   }
 
   // 404
-  handle404NotFoundRouteMiddleware: TMiddlewareFunc = (req: Request, res: Response): void => {
+  handle404NotFoundRouteMiddleware: TMiddlewareFunc = (req: Request, res: Response, next: NextFunction): void => {
     res
       .status(404)
       .setHeader('Content-Type', 'text/html; charset=utf-8')
-      .send('404 Not Found')
+      .sendFile(this.#pageNotFound404File, (error: Error | undefined): void => {
+        if (error)
+          next(error)
+      })
   }
 
   // 启动
@@ -80,5 +93,16 @@ export class Server {
     this.app.listen(this.port, '0.0.0.0', (): void => {
       console.log(`Start: http://localhost:${this.port}`)
     })
+  }
+
+  // 获取indexFile
+  getIndexFile(): string {
+    const indexFile: string = join(this.staticDir, 'index.html')
+
+    if (existsSync(indexFile))
+      return indexFile
+
+    const indexCsrFile: string = join(this.staticDir, 'index.csr.html')
+    return existsSync(indexCsrFile) ? indexCsrFile : indexFile
   }
 }
