@@ -24,7 +24,6 @@
         ],
         "styles": [
           "packages/frontend/src/styles/ng-zorro-antd-theme.less",
-          "packages/frontend/src/styles/tailwindcss.css",
           "packages/frontend/src/styles/styles.sass"
         ],
         "extractLicenses": false,
