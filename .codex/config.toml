@@ -1,9 +1,10 @@
 [mcp_servers.angular]
-command = "node"
+command = "npx"
 args = [
-  "--run",
-  "ng",
-  "--",
+  "-y",
+  "@angular/cli",
   "mcp",
 ]
+
+# 需要修改为绝对路径
 cwd = "packages/frontend"
