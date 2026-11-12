@@ -27,7 +27,7 @@ export const localeMap: Record<string, () => Promise<ILocaleItem>> = {
 }
 
 /** 支持的语言 */
-export const supportedLocales: Array<string> = ['en-US', 'zh-CN']
+export const supportedLocales: Array<string> = Object.keys(localeMap)
 export const supportedLowerCaseLocales: Array<string> = supportedLocales.map((o: string): string => o.toLocaleLowerCase())
 
 export { getLocaleBaseHref, type IParseLocaleReturnType, parseLocale } from './parseLocale'
