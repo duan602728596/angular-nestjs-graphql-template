@@ -5,12 +5,6 @@ import { Home } from './home/home'
 import { MilitaryGenerals } from './military-generals/military-generals'
 import { NumberCounting } from './number-counting/number-counting'
 
-const baseRoutes: Routes = [
-  { path: '', component: Home, pathMatch: 'full' },
-  { path: 'military-generals', component: MilitaryGenerals },
-  { path: 'number-counting', component: NumberCounting },
-]
-
 /**
  * 处理URL上的语言，判断是否匹配，规则为：
  * /xyz/      -> en-US
@@ -23,6 +17,12 @@ function localeMatcher(_route: Route, segments: Array<UrlSegment>): MaybeAsync<G
   const locale: string | undefined = segments[0]?.path?.toLocaleLowerCase()
   return supportedLowerCaseLocales.includes(locale)
 }
+
+const baseRoutes: Routes = [
+  { path: '', component: Home, pathMatch: 'full' },
+  { path: 'military-generals', component: MilitaryGenerals },
+  { path: 'number-counting', component: NumberCounting },
+]
 
 export const routes: Routes = [
   {
