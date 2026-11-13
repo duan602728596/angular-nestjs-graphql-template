@@ -5,6 +5,15 @@ args = [
   "@angular/cli",
   "mcp",
 ]
-
 # 需要修改为绝对路径
 cwd = "packages/frontend"
+
+[mcp_servers.playwright]
+command = "npx"
+args = [
+  "-y",
+  "@playwright/mcp",
+  "--extension",
+]
+# 需要修改为绝对路径
+cwd = ""

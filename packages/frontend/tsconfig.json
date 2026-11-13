@@ -10,6 +10,9 @@
       "@backend/*": [
         "../backend/*"
       ],
+      "#types/*": [
+        "./src/types/*"
+      ],
       "#utils/*": [
         "./src/utils/*"
       ]

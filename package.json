@@ -12,12 +12,13 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@angular/cli": "^22.1.8",
     "@angular-eslint/eslint-plugin": "^22.5.0",
     "@angular-eslint/eslint-plugin-template": "^22.5.0",
     "@angular-eslint/template-parser": "^22.5.0",
+    "@angular/cli": "^22.1.8",
     "@antfu/eslint-config": "^9.5.1",
     "@nx/angular": "^23.2.1",
+    "@playwright/mcp": "^0.0.85",
     "@types/node": "^26",
     "commitizen": "^4.3.2",
     "cross-env": "^10.1.0",

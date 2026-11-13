@@ -1,4 +1,4 @@
-import type { IServiceDataReturnType } from '../../types/response'
+import type { IServiceDataReturnType } from '#types/response'
 import { Injectable } from '@angular/core'
 import { query } from 'gql-query-builder'
 import { type IGraphQLQuerySchema, type IGraphQLResBody, type IQuery, requestGraphql } from '#utils/requestGraphql'

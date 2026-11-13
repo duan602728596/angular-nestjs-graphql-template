@@ -1,4 +1,4 @@
-import type { ISignalStore } from '../../types/ngrxSignal'
+import type { ISignalStore } from '#types/ngrxSignal'
 import { isPlatformServer } from '@angular/common'
 import { computed, inject, makeStateKey, PLATFORM_ID, type Signal, type StateKey, TransferState } from '@angular/core'
 import { patchState, signalStore, watchState, withComputed, withHooks, withMethods, withState } from '@ngrx/signals'
