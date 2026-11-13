@@ -1,0 +1,16 @@
+/**
+ * 便于快速加载TailwindCSS
+ *
+ * 在ng的global style中使用
+ * ```
+ * @use '@angular-nestjs-graphql-template/tailwindcss';
+ * ```
+ *
+ * 在inlineStyle中使用
+ * ```
+ * @reference '@angular-nestjs-graphql-template/tailwindcss';
+ * ```
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);

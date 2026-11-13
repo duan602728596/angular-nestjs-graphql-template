@@ -1,0 +1,11 @@
+{
+  "name": "@angular-nestjs-graphql-template/tailwindcss",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/tailwindcss.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.3.3"
+  }
+}
