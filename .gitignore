@@ -23,6 +23,7 @@
 /.eslintcache
 /.nx
 /.angular
+/.playwright-mcp
 
 # build
 /packages/**/dist
