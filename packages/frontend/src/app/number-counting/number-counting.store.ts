@@ -25,8 +25,8 @@ export const NumberCountingStore: TNumberCountingStoreTypes['TypeStore'] = signa
     count: 0,
   }),
 
-  withComputed((state: TNumberCountingStoreTypes['SignalState']): TNumberCountingStoreTypes['SignalComputed'] => ({
-    isOdd: computed((): boolean => state.count() % 2 !== 0),
+  withComputed((store: TNumberCountingStoreTypes['SignalState']): TNumberCountingStoreTypes['SignalComputed'] => ({
+    isOdd: computed((): boolean => store.count() % 2 !== 0),
   })),
 
   withMethods((store: TNumberCountingStoreTypes['WritableStore']): TNumberCountingStoreTypes['Methods'] => ({
